@@ -8,17 +8,20 @@ namespace lab2
         static bool check;
         static void Main(string[] args)
         {
+            int x1, x2, y1, y2;
             do
             {
+                Console.Clear();
                 Console.WriteLine("Введите название фигуры");
                 string figure = Console.ReadLine();
+                Console.WriteLine($"{figure}");
                 check = false;
                 Console.WriteLine("Введите начальные и конечные координаты через пробел");
-                int x1 = Convert.ToInt32(Convert.ToChar(Console.Read()));
-                int y1 = Convert.ToInt32(Convert.ToChar(Console.Read()));
-                int x2 = Convert.ToInt32(Convert.ToChar(Console.Read()));
-                x2 = Convert.ToInt32(Convert.ToChar(Console.Read()));
-                int y2 = Convert.ToInt32(Convert.ToChar(Console.Read()));
+                string coordinates = Console.ReadLine();
+                x1 = Convert.ToInt32(Convert.ToChar(coordinates[0]));
+                y1 = Convert.ToInt32(Convert.ToChar(coordinates[1]));
+                x2 = Convert.ToInt32(Convert.ToChar(coordinates[3]));
+                y2 = Convert.ToInt32(Convert.ToChar(coordinates[4]));
                 if (IsCoordinatesCorrect(x1, y1, x2, y2))
                 {
                     if (SelectFigure(figure, x1, y1, x2, y2))
@@ -37,6 +40,7 @@ namespace lab2
                     check = true;
                 }
                 //Console.WriteLine($"{x1} {y1} {x2} {y2}");
+                Console.ReadKey();
             } while (check);
         }
         static bool IsHorseCorrect(int x1, int y1, int x2, int y2)
