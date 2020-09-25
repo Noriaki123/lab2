@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Numerics;
+using System.Reflection.Metadata.Ecma335;
 
 namespace lab2
 {
@@ -11,12 +12,19 @@ namespace lab2
             int x1, x2, y1, y2;
             do
             {
+                check = false;
                 Console.Clear();
                 Console.WriteLine("Введите название фигуры");
                 string figure = Console.ReadLine();
-                check = false;
                 Console.WriteLine("Введите начальные и конечные координаты через пробел");
                 string coordinates = Console.ReadLine();
+                if (coordinates.Length != 5)
+                {
+                    check = true;
+                    Console.WriteLine("Неправильно заполнено поле координат");
+                    Console.ReadKey();
+                    continue;
+                }
                 x1 = Convert.ToInt32(Convert.ToChar(coordinates[0]));
                 y1 = Convert.ToInt32(Convert.ToChar(coordinates[1]));
                 x2 = Convert.ToInt32(Convert.ToChar(coordinates[3]));
@@ -37,7 +45,6 @@ namespace lab2
                 {
                     check = true;
                 }
-                //Console.WriteLine($"{x1} {y1} {x2} {y2}");
                 Console.ReadKey();
             } while (check);
         }
