@@ -14,7 +14,6 @@ namespace lab2
                 Console.Clear();
                 Console.WriteLine("Введите название фигуры");
                 string figure = Console.ReadLine();
-                Console.WriteLine($"{figure}");
                 check = false;
                 Console.WriteLine("Введите начальные и конечные координаты через пробел");
                 string coordinates = Console.ReadLine();
