@@ -35,7 +35,6 @@ namespace lab2
                 }
                 else
                 {
-                    Console.WriteLine("Выбранные вами координаты не соответствуют игровому полю");
                     check = true;
                 }
                 //Console.WriteLine($"{x1} {y1} {x2} {y2}");
@@ -49,7 +48,23 @@ namespace lab2
         }
         static bool IsCoordinatesCorrect(int x1, int y1, int x2, int y2)
         {
-            return (x1 > 64 && x1 < 73 && x2 > 64 && x2 < 73 && y1 > 48 && y1 < 57 && y2 > 48 && y2 < 57);
+            if (x1 > 64 && x1 < 73 && x2 > 64 && x2 < 73 && y1 > 48 && y1 < 57 && y2 > 48 && y2 < 57)
+            {
+                if (!(x2 == x1 && y2 == y1))
+                {
+                    return true;
+                }
+                else
+                {
+                    Console.WriteLine("Фигура не может оставаться на месте");
+                    return false;
+                }
+            }
+            else
+            {
+                Console.WriteLine("Выбранные вами координаты не соответствуют игровому полю");
+                return false;
+            }
         }
         static bool IsKingCorrect(int x1, int y1, int x2, int y2)
         {
