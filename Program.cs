@@ -48,11 +48,13 @@ namespace lab2
                 Console.ReadKey();
             } while (check);
         }
+
         static bool IsHorseCorrect(int x1, int y1, int x2, int y2)
         {
             return ((((x2 == x1--) || (x2 == x1++)) && ((y2 == y1 + 2) || (y2 == y1 - 2)))
             || (((y2 == y1--) || (y2 == y1++)) && ((x2 == x1 + 2) || (x2 == x1 - 2))));
         }
+
         static bool IsCoordinatesCorrect(int x1, int y1, int x2, int y2)
         {
             if (x1 > 64 && x1 < 73 && x2 > 64 && x2 < 73 && y1 > 48 && y1 < 57 && y2 > 48 && y2 < 57)
@@ -73,27 +75,33 @@ namespace lab2
                 return false;
             }
         }
+
         static bool IsKingCorrect(int x1, int y1, int x2, int y2)
         {
             return (((x2 == x1++) || (x2 == x1--)) && ((y2 == y1) || (y2 == y1--) || (y2 == y1++)))
             || (((x2 == x1++) || (x2 == x1--) || (x2 == x1)) && ((y2 == y1--) || (y2 == y1++)));
         }
+
         static bool IsQueenCorrect(int x1, int y1, int x2, int y2)
         {
             return ((x2 == x1) && (y2 != y1)) || ((y2 == y1) && (x2 != x1)) || (Math.Abs(x2 - x1) == Math.Abs(y2 - y1));
         }
+
         static bool IsBishopCorrect(int x1, int y1, int x2, int y2)
         {
             return ((Math.Abs(x2 - x1) == Math.Abs(y2 - y1)) && x2 != x1 && y2 != y1);
         }
+
         static bool IsRockCorrect(int x1, int y1, int x2, int y2)
         {
             return ((x2 == x1) && (y2 != y1)) || ((y2 == y1) && (x2 != x1));
         }
+
         static bool IsPawnCorrect(int x1, int y1, int x2, int y2)
         {
             return (x2 == x1) && ((y2 == y1++) || (y2 == y1--));
         }
+
         static bool SelectFigure(string figure, int x1, int y1, int x2, int y2)
         {
             if (figure == "Король")
